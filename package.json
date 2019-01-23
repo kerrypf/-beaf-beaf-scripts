@@ -1,6 +1,6 @@
 {
   "name": "beaf-scripts",
-  "version": "0.0.8",
+  "version": "0.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -52,5 +52,15 @@
     "webpack-dashboard": "^2.0.0",
     "webpack-dev-server": "^3.1.14",
     "webpack-manifest-plugin": "^2.0.4"
+  },
+  "peerDependencies": {
+    "lodash": "*",
+    "axios":"*",
+    "moment": "*"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0"
   }
 }

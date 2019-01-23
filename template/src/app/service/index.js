@@ -1,4 +1,4 @@
-import api, {axios } from './axios'
+import api, {axios } from 'beaf-scripts/lib/axios'
 
 import apiConfig from '../model/api'
 var core={

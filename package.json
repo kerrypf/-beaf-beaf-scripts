@@ -11,6 +11,10 @@
   "bin": {
     "create-beaf-app": "./bin/beaf-scripts.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kerrypf/beaf-scripts.git"
+  },
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.1",

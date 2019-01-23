@@ -1,6 +1,8 @@
 import api, {axios } from './axios'
+
+import api from '../model/api'
 var core={
-    ...api(name)
+    ...api(api)
 }
 console.log(core)
 

@@ -19,8 +19,7 @@ module.exports = {
     paths.appIndexJs
   ],
   output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "",
+    path: paths.appBuild,
     filename: "static/js/bundle.js",
     publicPath: "/",
     chunkFilename: "static/js/[name].chunk.js"
@@ -147,7 +146,7 @@ module.exports = {
     }),
     new VueLoaderPlugin(),
     new ExtractTextPlugin({
-      filename: "style/[name].[hash:8].css"
+      filename: "static/css/[name].[hash:8].css"
     }),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(

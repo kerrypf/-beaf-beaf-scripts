@@ -1,7 +1,9 @@
 const path = require("path");
 const webpack = require("webpack");
+const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
@@ -32,8 +34,8 @@ module.exports = {
     },
     optimization: {
       minimizer: [
-        new UglifyJsPlugin({
-          uglifyOptions: {
+        new TerserPlugin({
+          terserOptions: {
             parse: {
               // we want uglify-js to parse ecma 8 code. However, we don't want it
               // to apply any minfication steps that turns valid ecma 5 code
@@ -224,6 +226,7 @@ module.exports = {
           ),
         "process.env.VUE_ENV": '"server"'
       }),
+      new VueLoaderPlugin(),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional

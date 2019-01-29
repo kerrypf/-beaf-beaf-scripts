@@ -11,8 +11,9 @@ const fs = require('fs-extra');
 fs.emptyDirSync(paths.appBuild);
 // Merge with the public folder
 copyPublicFolder();
+console.log('building for production...')
 webpack(config, function (err, stats) {
-    console.log('building for production...')
+    
     if (err) {
         throw err
     }

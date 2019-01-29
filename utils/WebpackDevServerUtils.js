@@ -153,6 +153,9 @@ function prepareProxy(proxy, appPublicFolder) {
             proxyReq.setHeader('origin', target);
           }
         },
+        router: function(req) {
+          return target?target:req.headers.domain
+        },
         onError: onProxyError(target),
         secure: false,
         changeOrigin: true,
@@ -193,7 +196,10 @@ function prepareProxy(proxy, appPublicFolder) {
         }
       },
       pathRewrite: (path, req)=>{
-        console.log(path, req, 'path, req')
+        // console.log(path, req, 'path, req')
+      },
+      router: function(req) {
+        return target?target:req.headers.domain
       },
       target,
       _context_: context,

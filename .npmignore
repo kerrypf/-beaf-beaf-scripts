@@ -1,5 +1,7 @@
 node_modules/
+axios/
 
 .npmrc
 .yarnrc
 yarn.lock
+webpack.config.js

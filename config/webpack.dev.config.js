@@ -9,12 +9,14 @@ var HtmlWebpackPlugin = require("html-webpack-plugin");
 // var DashboardPlugin = require('webpack-dashboard/plugin');
 // var dashboard = new Dashboard();
 
+const paths = require("./paths");
+
 module.exports = {
   mode: "development",
   devtool: "eval-source-map",
   entry: [
     require.resolve("babel-polyfill"),
-    path.resolve(process.cwd(), "src/index.js")
+    paths.appIndexJs
   ],
   output: {
     path: path.resolve(__dirname, "../dist"),
@@ -31,7 +33,7 @@ module.exports = {
     runtimeChunk: true
   },
   resolve: {
-    modules: ["node_modules"],
+    modules: ["node_modules", paths.appNodeModules],
     // alias: {
     //   vue: 'vue/dist/vue.js',
     // },

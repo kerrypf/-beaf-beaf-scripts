@@ -4,7 +4,8 @@
   "description": "",
   "main": "lib",
   "scripts": {
-    "min": "node scripts/min.js"
+    "min": "node scripts/min.js",
+    "webpack": "webpack"
   },
   "author": "kerry",
   "license": "MIT",

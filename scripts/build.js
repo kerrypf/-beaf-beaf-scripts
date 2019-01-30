@@ -5,13 +5,12 @@ const webpack = require('webpack');
 const chalk = require('chalk');
 const fs = require('fs-extra');
 
-
+console.log('building for production...')
 // Remove all content but keep the directory so that
 // if you're in it, you don't end up in Trash
 fs.emptyDirSync(paths.appBuild);
 // Merge with the public folder
 copyPublicFolder();
-console.log('building for production...')
 webpack(config, function (err, stats) {
     
     if (err) {

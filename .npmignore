@@ -4,4 +4,3 @@ bns/
 .npmrc
 .yarnrc
 yarn.lock
-webpack.config.js

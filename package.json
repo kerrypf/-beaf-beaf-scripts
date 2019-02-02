@@ -4,8 +4,7 @@
   "description": "",
   "main": "lib",
   "scripts": {
-    "min": "node scripts/min.js",
-    "webpack": "webpack"
+    "build": "babel ./bns --out-dir lib --plugins=transform-runtime,syntax-dynamic-import,syntax-jsx --presets=env,stage-2"
   },
   "author": "kerry",
   "license": "MIT",
@@ -68,6 +67,7 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "babel-cli": "6.x",
     "lodash": "^4.17.11",
     "moment": "^2.24.0"
   }

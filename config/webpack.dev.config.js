@@ -125,13 +125,13 @@ module.exports = {
           }
         ]
       },
-      {
-        exclude: [/\.(js|jsx|mjs|vue)$/, /\.html$/, /\.json$/],
-        loader: require.resolve("file-loader"),
-        options: {
-          name: "static/media/[name].[hash:8].[ext]"
-        }
-      }
+      // {
+      //   exclude: [/\.(js|jsx|mjs|vue)$/, /\.html$/, /\.json$/],
+      //   loader: require.resolve("file-loader"),
+      //   options: {
+      //     name: "static/media/[name].[hash:8].[ext]"
+      //   }
+      // }
     ]
   },
 

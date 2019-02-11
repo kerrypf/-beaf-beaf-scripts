@@ -12,6 +12,6 @@ module.exports = {
     appPackageJson: resolveApp('package.json'),
     appSrc: resolveApp('src'),
     appNodeModules: resolveApp('node_modules'),
-    appAssets: resolveApp('src/app/assets'),
+    // appAssets: resolveApp('src/app/assets'),
     // servedPath: getServedPath(resolveApp('package.json'))
 };

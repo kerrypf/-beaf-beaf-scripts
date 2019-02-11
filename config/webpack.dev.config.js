@@ -33,9 +33,9 @@ module.exports = {
   },
   resolve: {
     modules: ["node_modules", paths.appNodeModules],
-    alias: {
-      assets: paths.appAssets,
-    },
+    // alias: {
+    //   assets: paths.appAssets,
+    // },
     extensions: [".js", ".json", ".vue", ".css", ".scss"]
   },
   externals: {

@@ -46,6 +46,28 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   enforce: 'pre',
+      //   test: /\.(js|vue)$/,
+      //   // loader: 'eslint-loader',
+      //   exclude: /node_modules/,
+      //   use: [
+      //     {
+      //       options: {
+      //         // formatter: eslintFormatter,
+      //         parser: "babel-eslint",
+      //         eslintPath: require.resolve("eslint"),
+      //         // baseConfig: {
+      //         //   extends: [require.resolve("eslint-config-react-app")]
+      //         // },
+      //         ignore: false,
+      //         useEslintrc: false
+      //       },
+      //       loader: require.resolve("eslint-loader")
+      //     }
+      //   ],
+      // },
+      
       // 'transform-runtime' 插件告诉 babel 要引用 runtime 来代替注入。
       {
         test: /\.js$/,
@@ -87,33 +109,6 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           use: ["css-loader", "sass-loader"],
-          // 在开发环境使用 style-loader
-          fallback: "style-loader"
-        })
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-                "css-loader", 
-                "sass-loader",
-                {
-                  loader: 'postcss-loader',
-                  options: {
-                    ident: 'postcss',
-                    plugins: () => [
-                      require('postcss-flexbugs-fixes'),
-                      require('postcss-preset-env')({
-                        autoprefixer: {
-                          flexbox: 'no-2009',
-                        },
-                        stage: 3,
-                      }),
-                    ],
-                    sourceMap:false
-                  }
-                }
-              ],
           // 在开发环境使用 style-loader
           fallback: "style-loader"
         })

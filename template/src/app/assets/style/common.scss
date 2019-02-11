@@ -1,0 +1,15 @@
+*{
+    padding:0;
+    margin :0;
+}
+ul, ol{
+    >li{
+        list-style:none
+    }
+}
+@font-face {
+    font-family: Heroes;
+    font-style: normal;
+    font-weight: 400;
+    src: url(../font/heroes.woff2) format("woff2"),url(../font/heroes.woff) format("woff")
+}

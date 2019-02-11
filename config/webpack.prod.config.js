@@ -97,28 +97,6 @@ module.exports = {
     },
     module: {
         rules: [
-          // {
-          //   enforce: 'pre',
-          //   test: /\.(js|vue)$/,
-          //   // loader: 'eslint-loader',
-          //   exclude: /node_modules/,
-          //   use: [
-          //     {
-          //       options: {
-          //         // formatter: eslintFormatter,
-          //         parser: "babel-eslint",
-          //         eslintPath: require.resolve("eslint"),
-          //         // baseConfig: {
-          //         //   extends: [require.resolve("eslint-config-react-app")]
-          //         // },
-          //         ignore: false,
-          //         useEslintrc: false
-          //       },
-          //       loader: require.resolve("eslint-loader")
-          //     }
-          //   ],
-          // },
-          
           // 'transform-runtime' 插件告诉 babel 要引用 runtime 来代替注入。
           {
             test: /\.js$/,
@@ -187,12 +165,16 @@ module.exports = {
             ]
           },
           {
-            exclude: [/\.(js|jsx|mjs|vue)$/, /\.html$/, /\.json$/],
-            loader: require.resolve("file-loader"),
-            options: {
-              name: "static/media/[name].[hash:8].[ext]"
-            }
-          }
+            test: /\.(eot|svg|ttf|woff|woff2)$/,
+            loader: "file-loader"
+          },
+          // {
+          //   exclude: [/\.(js|jsx|mjs|vue)$/, /\.html$/, /\.json$/],
+          //   loader: require.resolve("file-loader"),
+          //   options: {
+          //     name: "static/media/[name].[hash:8].[ext]"
+          //   }
+          // }
         ]
     },
     plugins: [

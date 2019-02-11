@@ -76,45 +76,44 @@ module.exports = {
           extractCSS: true
         }
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ExtractTextPlugin.extract({
-      //     fallback: "style-loader",
-      //     use: ["css-loader"]
-      //   })
-      // },
-      // {
-      //   test: /\.scss$/,
-      //   use: ExtractTextPlugin.extract({
-      //     use: ["css-loader", "sass-loader"],
-      //     // 在开发环境使用 style-loader
-      //     fallback: "style-loader"
-      //   })
-      // },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader"]
+        })
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          use: ["css-loader", "sass-loader"],
+          // 在开发环境使用 style-loader
+          fallback: "style-loader"
+        })
+      },
       {
         test: /\.(sa|sc|c)ss$/,
         use: ExtractTextPlugin.extract({
-          use: 
-            [
-              "css-loader", 
-              "sass-loader",
-              {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  plugins: () => [
-                    require('postcss-flexbugs-fixes'),
-                    require('postcss-preset-env')({
-                      autoprefixer: {
-                        flexbox: 'no-2009',
-                      },
-                      stage: 3,
-                    }),
-                  ],
-                  sourceMap:false
+          use: [
+                "css-loader", 
+                "sass-loader",
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    ident: 'postcss',
+                    plugins: () => [
+                      require('postcss-flexbugs-fixes'),
+                      require('postcss-preset-env')({
+                        autoprefixer: {
+                          flexbox: 'no-2009',
+                        },
+                        stage: 3,
+                      }),
+                    ],
+                    sourceMap:false
+                  }
                 }
-              }
-            ],
+              ],
           // 在开发环境使用 style-loader
           fallback: "style-loader"
         })

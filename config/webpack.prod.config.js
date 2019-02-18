@@ -133,7 +133,6 @@ module.exports = {
                 MiniCssExtractPlugin.loader,
                 "css-loader",
                 "sass-loader",
-                "style-loader",
                 {
                     loader: 'postcss-loader',
                     options: {
@@ -166,7 +165,10 @@ module.exports = {
           },
           {
             test: /\.(eot|svg|ttf|woff|woff2)$/,
-            loader: "file-loader"
+            loader: "file-loader",
+            options: {
+              name: "static/media/[name].[hash:8].[ext]"
+            }
           },
           // {
           //   exclude: [/\.(js|jsx|mjs|vue)$/, /\.html$/, /\.json$/],

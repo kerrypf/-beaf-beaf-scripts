@@ -160,17 +160,17 @@ function prepareProxy(proxy, appPublicFolder) {
         },
         bypass: function(req, res, proxyOptions) {
           const publicPath = paths.publicPath || '/'
-          const url = req.url
-          const tarUrl = req.url.indexOf(paths.publicPath) !== -1
-          var tarContentArr = ['html', 'css', 'javascript']
-          const tarContent = tarContentArr.find( item => {
-            return req.headers.accept.indexOf(item) !== -1
-          })
-          if (tarContent) {
-            console.log('Skipping proxy for browser request.');
-            return tarContent;
+          const tarUrl = req.url.indexOf(publicPath) !== -1
+          if (tarUrl) {
+            var tarContentArr = ['html', 'css', 'javascript']
+            const tarContent = tarContentArr.find( item => {
+              return req.headers.accept.indexOf(item) !== -1
+            })
+            if (tarContent) {
+              console.log('Skipping proxy for browser request.');
+              return tarContent;
+            }
           }
-          
         },
         onError: onProxyError(target),
         secure: false,

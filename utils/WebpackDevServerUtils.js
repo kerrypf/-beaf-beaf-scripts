@@ -1,3 +1,4 @@
+const {forEach} = require('lodash')
 const detect = require('detect-port-alt');
 const chalk = require('chalk');
 const isRoot = require('is-root');
@@ -5,6 +6,7 @@ const url = require('url');
 const fs = require('fs');
 const address = require('address');
 const path = require("path");
+const paths = require("../config/paths");
 
 function resolveLoopback(proxy) {
   const o = url.parse(proxy);
@@ -155,6 +157,20 @@ function prepareProxy(proxy, appPublicFolder) {
         },
         router: function(req) {
           return target?target:req.headers.domain
+        },
+        bypass: function(req, res, proxyOptions) {
+          const publicPath = paths.publicPath || '/'
+          const url = req.url
+          const tarUrl = req.url.indexOf(paths.publicPath) !== -1
+          var tarContentArr = ['html', 'css', 'javascript']
+          const tarContent = tarContentArr.find( item => {
+            return req.headers.accept.indexOf(item) !== -1
+          })
+          if (tarContent) {
+            console.log('Skipping proxy for browser request.');
+            return tarContent;
+          }
+          
         },
         onError: onProxyError(target),
         secure: false,

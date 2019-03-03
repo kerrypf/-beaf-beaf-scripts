@@ -23,7 +23,7 @@ const {
 } = require("../utils/WebpackDevServerUtils");
 const config = require("../config/webpack.dev.config");
 const createDevServerConfig = require("../config/webpack.server.config");
-const package = require("../package.json");
+const paths = require("../config/paths");
 
 
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
@@ -57,7 +57,7 @@ choosePort(HOST, DEFAULT_PORT)
     const urls = prepareUrls(protocol, HOST, port);
 
     // Load proxy config
-    const proxySetting = package.proxy
+    const proxySetting = require(paths.appPackageJson).proxy
     const proxyConfig = prepareProxy(proxySetting, path.join(__dirname, '../public'));
     // const proxyConfig = package.proxy
 

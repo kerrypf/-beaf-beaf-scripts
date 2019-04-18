@@ -101,7 +101,6 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        exclude: /(node_modules|bower_components)/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,

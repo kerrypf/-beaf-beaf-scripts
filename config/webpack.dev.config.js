@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+// const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { VueLoaderPlugin } = require("vue-loader");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const ProgressBarPlugin = require("progress-bar-webpack-plugin");
@@ -99,20 +100,35 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader"]
-        })
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+            },
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: ["css-loader", "sass-loader"],
-          // 在开发环境使用 style-loader
-          fallback: "style-loader"
-        })
-      },
+      
+      // {
+      //   test: /\.css$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: "style-loader",
+      //     use: ["css-loader"]
+      //   })
+      // },
+      // {
+      //   test: /\.scss$/,
+      //   use: ExtractTextPlugin.extract({
+      //     use: ["css-loader", "sass-loader"],
+      //     // 在开发环境使用 style-loader
+      //     fallback: "style-loader"
+      //   })
+      // },
       {
         test: /\.(png|(jpe?g)|gif|svg)$/,
         use: [
@@ -149,8 +165,14 @@ module.exports = {
       favicon: "public/favicon.ico"
     }),
     new VueLoaderPlugin(),
-    new ExtractTextPlugin({
+    // new ExtractTextPlugin({
+    //   filename: "static/css/[name].[hash:8].css"
+    // }),
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
       filename: "static/css/[name].[hash:8].css"
+      // chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(

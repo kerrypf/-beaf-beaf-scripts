@@ -58,7 +58,7 @@ choosePort(HOST, DEFAULT_PORT)
 
     // Load proxy config
     const proxySetting = require(paths.appPackageJson).proxy
-    const proxyConfig = prepareProxy(proxySetting, path.join(__dirname, '../public'));
+    const proxyConfig = prepareProxy(proxySetting, paths.appPublic);
     // const proxyConfig = package.proxy
 
     // Create a webpack compiler that is configured with custom messages.

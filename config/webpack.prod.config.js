@@ -132,23 +132,7 @@ module.exports = {
             use: [
                 MiniCssExtractPlugin.loader,
                 "css-loader",
-                "sass-loader",
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        ident: 'postcss',
-                        plugins: () => [
-                            require('postcss-flexbugs-fixes'),
-                            require('postcss-preset-env')({
-                              autoprefixer: {
-                                flexbox: 'no-2009',
-                              },
-                              stage: 3,
-                            }),
-                        ],
-                        sourceMap:false
-                    }
-                }
+                "sass-loader"
             ]
           },
           {

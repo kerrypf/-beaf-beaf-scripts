@@ -41,7 +41,7 @@ function tryGitInit(appPath) {
     didInit = true;
 
     execSync('git add -A', { stdio: 'ignore' });
-    execSync('git commit -m "Initial commit from @mogul/create-mogul-app"', {
+    execSync('git commit -m "Initial commit from create-beaf-app"', {
       stdio: 'ignore',
     });
     return true;

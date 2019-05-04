@@ -1,1 +1,0 @@
-# @mogul/create-mogul-app

@@ -73,7 +73,6 @@ module.exports = {
         }),
         new OptimizeCSSAssetsPlugin({
           // 启用 cssnano safe模式
-          // https://github.com/freshesx/mogul-scripts/issues/1
           cssProcessorOptions: {
             safe: true
           }
